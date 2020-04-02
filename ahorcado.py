@@ -107,10 +107,20 @@ def run():
 
         if len(letter_indexes) == 0:
             tries += 1
+            if tries == 7:
+                display_board(hidden_word, tries)
+                print('')
+                print('!perdiste, la palabra secreta era {}'.format(word))
+                break 
         else:
             for idx in letter_indexes:
                 hidden_word[idx] = current_letter
        
+        if hidden_word.count('_') == 0:
+            display_board(hidden_word, tries)
+            print('')
+            print('!!Ganaste, felicitaciones')
+            break   
 
 
 
